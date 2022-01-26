@@ -9,6 +9,9 @@
 #include <cstdio>
 #include <cstdlib>
 
+// Forward declarations:
+void drawImGuiStuff(GLFWwindow* window, ImGuiIO& io);
+
 int main(int argc, char* argv[]) {
 
     // Load GLFW and Create a Window
@@ -56,7 +59,7 @@ int main(int argc, char* argv[]) {
         ImGui_ImplGlfw_NewFrame();
         ImGui::NewFrame();
 
-        ImGui::ShowDemoWindow();
+        drawImGuiStuff(mWindow, io);
 
         // Renders the ImGUI elements
         ImGui::Render();
@@ -70,4 +73,26 @@ int main(int argc, char* argv[]) {
     
     glfwTerminate();
     return EXIT_SUCCESS;
+}
+
+void drawImGuiStuff(GLFWwindow* window, ImGuiIO& io)
+{
+    ImGui::DockSpaceOverViewport();
+    // ImGui::ShowDemoWindow();
+    ImGui::Begin("Hello World");
+    ImGui::End();
+    if (ImGui::BeginMainMenuBar())
+    {
+        if (ImGui::BeginMenu("Edit"))
+        {
+            if (ImGui::MenuItem("Undo", "CTRL+Z")) {}
+            if (ImGui::MenuItem("Redo", "CTRL+Y", false, false)) {}  // Disabled item
+            ImGui::Separator();
+            if (ImGui::MenuItem("Cut", "CTRL+X")) {}
+            if (ImGui::MenuItem("Copy", "CTRL+C")) {}
+            if (ImGui::MenuItem("Paste", "CTRL+V")) {}
+            ImGui::EndMenu();
+        }
+        ImGui::EndMainMenuBar();
+    }
 }
