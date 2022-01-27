@@ -78,4 +78,12 @@
       <Filter>Header Files\imgui</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="Roboto-Regular.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="OpenSans-Regular.ttf">
+      <Filter>Resource Files</Filter>
+    </Font>
+  </ItemGroup>
 </Project>
